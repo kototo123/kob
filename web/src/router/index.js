@@ -6,48 +6,73 @@ import UserBotIndexView from '@/views/user/bot/UserBotIndexView.vue'
 import NotFound from '@/views/error/NotFound.vue'
 import UserAccountLoginViewVue from '@/views/user/account/UserAccountLoginView.vue'
 import UserAccountRegisterViewVue from '@/views/user/account/UserAccountRegisterView.vue'
+import store from '@/store'
 
 const routes = [
   {
     path: "/",
     name: "home",
-    redirect: "/pk/"
+    redirect: "/pk/",
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/pk/",
     name: "pk_index",
-    component: PkIndexView
+    component: PkIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/record/",
     name: "record_index",
-    component: RecordIndexView
+    component: RecordIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/ranklist/",
     name: "ranklist_index",
-    component: RanklistIndexView
+    component: RanklistIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/user/bot/",
     name: "user_bot_index",
-    component: UserBotIndexView
+    component: UserBotIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/404/",
     name: "not_found_index",
-    component: NotFound
+    component: NotFound,
+    meta: {
+      requestAuth: false,
+    }
   },
   
   {
     path: "/user/account/login/",
     name: "user_account_login",
-    component: UserAccountLoginViewVue
+    component: UserAccountLoginViewVue,
+    meta: {
+      requestAuth: false,
+    }
   },
   {
     path: "/user/account/register/",
     name: "user_account_register",
-    component: UserAccountRegisterViewVue
+    component: UserAccountRegisterViewVue,
+    meta: {
+      requestAuth: false,
+    }
   },
   {
     path: "/:catchAll(.*)",
@@ -58,6 +83,14 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+})
+
+router.beforeEach((to , from , next) => {
+  if(to.meta.requestAuth && !store.state.user.is_login) {
+    next({name: "user_account_login"});
+  } else {
+    next();
+  }
 })
 
 export default router
