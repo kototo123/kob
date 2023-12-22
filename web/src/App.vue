@@ -12,7 +12,7 @@ export default {
   components: {
     Navbar
   },
-  // setup() {
+  setup() {
    
   //   });
 
@@ -31,7 +31,7 @@ export default {
   //       console.log(resp)
   //     }
   //   })
-  // }
+  }
 }
 </script>
 
