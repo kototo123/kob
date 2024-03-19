@@ -41,8 +41,6 @@ export class GameMap extends AcGameObject {
         if (this.store.state.record.is_record) {
             let k = 0;
 
-            console.log(this.store.state.record);
-
             const a_steps = this.store.state.record.a_steps;
             const b_steps = this.store.state.record.b_steps;
             const loser = this.store.state.record.record_loser;

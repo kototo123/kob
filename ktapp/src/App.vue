@@ -10,14 +10,13 @@
 </template>
 
 <script>
-
 import { useStore } from "vuex";
-import MenuView from './views/MenuView.vue'
-import PkIndexViewvue from './views/pk/PkIndexView.vue'
-import RecordIndexViewVue from './views/record/RecordIndexView.vue'
-import RecordContentViewVue from './views/record/RecordContentView.vue'
-import RanklistIndexViewVue from './views/ranklist/RanklistIndexView.vue'
-import UserBotIndexViewVue from './views/user/bot/UserBotIndexView.vue'
+import MenuView from "./views/MenuView.vue";
+import PkIndexViewvue from "./views/pk/PkIndexView.vue";
+import RecordIndexViewVue from "./views/record/RecordIndexView.vue";
+import RecordContentViewVue from "./views/record/RecordContentView.vue";
+import RanklistIndexViewVue from "./views/ranklist/RanklistIndexView.vue";
+import UserBotIndexViewVue from "./views/user/bot/UserBotIndexView.vue";
 
 export default {
   components: {
@@ -26,7 +25,7 @@ export default {
     RanklistIndexViewVue,
     RecordContentViewVue,
     RecordIndexViewVue,
-    UserBotIndexViewVue,
+    UserBotIndexViewVue
   },
   setup() {
     const store = useStore();
@@ -56,11 +55,12 @@ body {
   margin: 0;
 }
 div.game-body {
-  background-image: url("./assets/images/background.jpg");
-  background-size: auto;
+  background-image: url("@/assets/images/background.jpg");
+  background-size: cover;
   width: 100%;
   height: 100%;
 }
+
 div.window {
   width: 100vw;
   height: 100vh;
