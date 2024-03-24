@@ -46,12 +46,16 @@ export default {
 <style>
 div.result-board {
     height: 30vh;
-    width: 26vw;
+    width: 30vw;
     background-color: rgba(50, 50, 50, 0.5);
     position: absolute;
-    top: 34vh;
-    left: 37vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
+
 div.result-board-text {
     text-align: center;
     color: white;
@@ -62,6 +66,6 @@ div.result-board-text {
 }
 div.result-board-btn {
     text-align: center;
-    padding-top: 3vh;
+    padding-top: 7vh;
 }
 </style>
